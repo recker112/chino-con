@@ -4,13 +4,13 @@ import { readLocal } from "../components/utils/localRead";
 import { themes } from "../theme/themes";
 
 export const useThemeConfig = () => {
-  const initialMode = readLocal("chino-theme", "light");
+  const initialMode = readLocal("userConfig.theme", "light");
 
   const [themeMode, setThemeMode] = useState(initialMode);
 
   useEffect(() => {
     function updateFromStorage() {
-      const m = readLocal("chino-theme", "light");
+      const m = readLocal("userConfig.theme", "light");
       setThemeMode(m);
     }
 
@@ -20,7 +20,7 @@ export const useThemeConfig = () => {
         updateFromStorage();
         return;
       }
-      if (e.key === "chino-theme" || e.key === null) {
+      if (e.key === "userConfig.theme" || e.key === null) {
         updateFromStorage();
       }
     }
