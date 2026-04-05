@@ -1,12 +1,16 @@
-import React, { useEffect } from 'react'
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import { useThemeConfig } from "./hooks/useThemeConfig";
+import Router from "./Router";
 
 export default function App() {
-  const [count, setCount] = React.useState(0)
+  const themeConfig = useThemeConfig();
+  console.log("Theme config", themeConfig);
 
-  useEffect(() => {
-    console.log('count', count)
-  }, [count])
   return (
-    <div>App</div>
+    <ThemeProvider theme={themeConfig}>
+      <CssBaseline />
+      <span id="top-anchor" />
+      <Router />
+    </ThemeProvider>
   )
 }
