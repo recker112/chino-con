@@ -43,7 +43,7 @@ export default function TabContentSelector() {
   return (
     <>
       <Typography component="div" color="textSecondary" sx={{ mt: 4 }}>
-        Contenido de la Lista {tabFonema + 1}
+        Fonemas disponibles
       </Typography>
       <Grid container spacing={2} sx={{ mt: 1, mb: 4 }}>
         {content[tabFonema]?.map((item, index) => (
