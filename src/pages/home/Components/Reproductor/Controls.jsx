@@ -1,12 +1,19 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Button, Grid, IconButton, Slider, Menu, MenuItem } from "@mui/material";
+import {
+  Button,
+  Grid,
+  IconButton,
+  Slider,
+  Menu,
+  MenuItem,
+} from "@mui/material";
 import SkipNextIcon from "@mui/icons-material/SkipNext";
 import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import PauseIcon from "@mui/icons-material/Pause";
-import VolumeUpIcon from '@mui/icons-material/VolumeUp';
-import VolumeDownIcon from '@mui/icons-material/VolumeDown';
+import VolumeUpIcon from "@mui/icons-material/VolumeUp";
+import VolumeDownIcon from "@mui/icons-material/VolumeDown";
 import { content } from "../Content";
 import { updateUserConfig } from "../../../../store/reducers/user/configReducer";
 
@@ -39,7 +46,9 @@ export default function Controls() {
 
   const selectFonema = (item) => {
     const list = content[tabFonema] ?? [];
-    const index = list.findIndex((currentItem) => getFonemaId(currentItem) === getFonemaId(item));
+    const index = list.findIndex(
+      (currentItem) => getFonemaId(currentItem) === getFonemaId(item),
+    );
     if (index === -1) return;
 
     dispatch(
@@ -73,7 +82,7 @@ export default function Controls() {
 
     audio.onended = () => {
       setIsPlaying(false);
-      setCurrentRepeat(prev => {
+      setCurrentRepeat((prev) => {
         if (prev + 1 < repeatCount) {
           setTimeout(() => {
             audio.currentTime = 0;
@@ -177,8 +186,14 @@ export default function Controls() {
         </IconButton>
       </Grid>
 
-      <Grid container alignItems="center" justifyContent="center" size={12} sx={{ mt: 1 }}>
-        <VolumeDownIcon sx={{mr: 2}} />
+      <Grid
+        container
+        alignItems="center"
+        justifyContent="center"
+        size={12}
+        sx={{ mt: 1 }}
+      >
+        <VolumeDownIcon sx={{ mr: 2 }} />
         <Slider
           value={volume}
           min={0}
@@ -188,10 +203,16 @@ export default function Controls() {
           aria-labelledby="volume-slider"
           sx={{ width: 200 }}
         />
-        <VolumeUpIcon sx={{ml: 2}} />
+        <VolumeUpIcon sx={{ ml: 2 }} />
       </Grid>
 
-      <Grid container alignItems="center" justifyContent="center" size={12} sx={{ mt: 2 }}>
+      <Grid
+        container
+        alignItems="center"
+        justifyContent="center"
+        size={12}
+        sx={{ mt: 2 }}
+      >
         <Button
           variant="outlined"
           color="primary"
@@ -202,10 +223,18 @@ export default function Controls() {
         </Button>
         <Menu
           anchorEl={anchorElSpeed}
+          anchorOrigin={{
+            vertical: "center",
+            horizontal: "center",
+          }}
+          transformOrigin={{
+            vertical: "center",
+            horizontal: "center",
+          }}
           open={Boolean(anchorElSpeed)}
           onClose={handleSpeedClose}
         >
-          {SPEEDS.map(speed => (
+          {SPEEDS.map((speed) => (
             <MenuItem key={speed} onClick={() => handleSpeedSelect(speed)}>
               x{speed}
             </MenuItem>
@@ -222,10 +251,18 @@ export default function Controls() {
         </Button>
         <Menu
           anchorEl={anchorElRepeat}
+          anchorOrigin={{
+            vertical: "center",
+            horizontal: "center",
+          }}
+          transformOrigin={{
+            vertical: "center",
+            horizontal: "center",
+          }}
           open={Boolean(anchorElRepeat)}
           onClose={handleRepeatClose}
         >
-          {REPEAT_OPTIONS.map(count => (
+          {REPEAT_OPTIONS.map((count) => (
             <MenuItem key={count} onClick={() => handleRepeatSelect(count)}>
               x{count}
             </MenuItem>
