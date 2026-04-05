@@ -3,6 +3,7 @@ import { readStorage } from "../../../components/utils/localRead";
 
 const initialState = {
   theme: readStorage("userConfig.theme", 'light'),
+  tabFonema: 0,
 };
 
 export const userConfigSlice = createSlice({
@@ -10,9 +11,9 @@ export const userConfigSlice = createSlice({
   initialState,
   reducers: {
     updateUserConfig: (state, action) => {
-      const { key, value } = action.payload;
+      const { key, value, notSave } = action.payload;
       state[key] = value;
-      localStorage.setItem(`userConfig.${key}`, JSON.stringify(value));
+      !notSave && localStorage.setItem(`userConfig.${key}`, JSON.stringify(value));
     },
     updateTheme: (state) => {
       const newTheme = state.theme === 'light' ? 'dark' : 'light';
