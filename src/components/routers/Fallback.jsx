@@ -12,7 +12,6 @@ import { Button, Grid, Skeleton, Typography, useTheme } from "@mui/material";
  * Components
  */
 import { bouncy } from "ldrs";
-import { readLocal } from "../utils/localRead";
 
 bouncy.register();
 
@@ -71,7 +70,7 @@ export default function Fallback({ text, loading, homeButton = false }) {
 
       {homeButton && (
         <Grid textAlign="center">
-          <Button variant="text" color="primary" component={Link} to="/">
+          <Button variant="text" color="primary" component={Link} to="/chino-con">
             Reintentar
           </Button>
         </Grid>
