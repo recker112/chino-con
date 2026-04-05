@@ -12,7 +12,7 @@ export default function LogoHero() {
         component="img"
         src={portada}
         alt="Chino Con"
-        sx={{ height: 50, mr: 2, borderRadius: 2 }}
+        sx={{ height: 70, mr: 2, borderRadius: 2 }}
       />
       <Box sx={{ flexGrow: 1 }}>
         <Typography
