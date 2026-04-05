@@ -24,7 +24,7 @@ const router = createBrowserRouter([
     element: <DefaultLayout />,
     children: [
       {
-        index: true,
+        path: "/chino-con",
         element: (
           <Home />
         ),
