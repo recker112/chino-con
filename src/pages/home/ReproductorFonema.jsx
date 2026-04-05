@@ -6,6 +6,7 @@ export default function ReproductorFonema() {
   const fonemaSelected = useSelector(
     (state) => state.userConfig.fonemaSelected,
   );
+  const selectedFonema = fonemaSelected?.current ?? fonemaSelected;
 
   return (
     <Paper
@@ -24,32 +25,30 @@ export default function ReproductorFonema() {
         alignItems="center"
         sx={{ minHeight: 200 }}
       >
-        {fonemaSelected ? (
+        {selectedFonema ? (
           <>
             <Grid size={12}>
               <Typography variant="h2" component="div" fontWeight="bold" color="primary">
-                {fonemaSelected.title}
+                {selectedFonema.title}
               </Typography>
               <Typography variant="h5" component="div" color="textSecondary">
-                {fonemaSelected.chino}
+                {selectedFonema.chino}
               </Typography>
             </Grid>
             <Grid>
               <Paper sx={{ px: 2, py: 1,  mt: 2, borderRadius: 2 }}>
                 <Typography variant="h6" component="span">
-                  {fonemaSelected.subchino}
+                  {selectedFonema.subchino}
                 </Typography>
                 <Typography variant="body" component="span" color="textSecondary" sx={{ ml: 1 }}>
-                  {fonemaSelected.subchinoPinyin}
+                  {selectedFonema.subchinoPinyin}
                 </Typography>
                 <Typography variant="body" component="div" color="textSecondary">
-                  {fonemaSelected.subchinoTranslation}
+                  {selectedFonema.subchinoTranslation}
                 </Typography>
               </Paper>
             </Grid>
-            <Grid size={12} sx={{ mt: 4 }}>
-              <Controls />
-            </Grid>
+            <Controls />
           </>
         ) : (
           <>
