@@ -18,7 +18,7 @@ export default function ContainerChino({ full, children }) {
       ) : (
         <Container
           disableGutters={true}
-          sx={{ mt: { xs: 16 }, mb: { xs: 10, sm: 3 }, px: 2 }}
+          sx={{ mt: { xs: 18 }, mb: { xs: 10, sm: 3 }, px: 2 }}
         >
           {children}
         </Container>
