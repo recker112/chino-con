@@ -11,17 +11,34 @@ export default function TabContentSelector() {
   );
   const dispatch = useDispatch();
 
+  const getFonemaId = (item) => {
+    if (!item) return "";
+    return `${item.title}${item.chino}`;
+  };
+
+  const buildSelection = (list, index) => ({
+    current: list[index] ?? null,
+    back: index > 0 ? list[index - 1] : null,
+    next: index < list.length - 1 ? list[index + 1] : null,
+    index,
+    tab: tabFonema,
+  });
+
   const handleSelected = (item) => {
-    const id = item.title + item.chino;
-    const fonemaId = fonemaSelected?.title + fonemaSelected?.chino;
-    if (fonemaId === id) {
-      return null;
-    }
+    const list = content[tabFonema] ?? [];
+    const index = list.findIndex((currentItem) => getFonemaId(currentItem) === getFonemaId(item));
+    if (index === -1) return;
+
+    const selection = buildSelection(list, index);
+    const selectedId = getFonemaId(fonemaSelected?.current ?? fonemaSelected);
+    if (selectedId === getFonemaId(selection.current)) return;
 
     dispatch(
-      updateUserConfig({ key: "fonemaSelected", value: item, notSave: true }),
+      updateUserConfig({ key: "fonemaSelected", value: selection, notSave: true }),
     );
   };
+
+  const selectedId = getFonemaId(fonemaSelected?.current ?? fonemaSelected);
 
   return (
     <>
@@ -38,8 +55,7 @@ export default function TabContentSelector() {
                 textAlign: "center",
                 cursor: "pointer",
                 borderColor:
-                  fonemaSelected?.title + fonemaSelected?.chino ===
-                  item.title + item.chino
+                  selectedId === getFonemaId(item)
                     ? "primary.main"
                     : "transparent",
                 borderWidth: 2,
