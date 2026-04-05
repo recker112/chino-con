@@ -32,33 +32,33 @@ export const themes = {
   },
   dark: {
     primary: {
-      main: "#E05545", // Rojo más brillante para contraste
-      light: "#E87268",
-      dark: "#C23A2B",
-      contrastText: "#FDF8F4",
+      main: '#E05545',      // Rojo más brillante para contraste
+      light: '#E87268',
+      dark: '#C23A2B',
+      contrastText: '#FDF8F4',
     },
     secondary: {
-      main: "#3D352E", // Marrón oscuro cálido
-      light: "#4A4139",
-      dark: "#2E2823",
-      contrastText: "#E8DFD4",
+      main: '#3D352E',      // Marrón oscuro cálido
+      light: '#4A4139',
+      dark: '#2E2823',
+      contrastText: '#E8DFD4',
     },
     background: {
-      default: "#1F1A17", // Fondo marrón muy oscuro
-      paper: "#2A2420", // Cards
+      default: '#1F1A17',   // Fondo marrón muy oscuro
+      paper: '#2A2420',     // Cards
     },
     text: {
-      primary: "#EDE5DA", // Texto principal claro cálido
-      secondary: "#A69788", // Texto secundario
+      primary: '#EDE5DA',   // Texto principal claro cálido
+      secondary: '#A69788', // Texto secundario
     },
     error: {
-      main: "#C23A2B",
-      contrastText: "#FDF8F4",
+      main: '#C23A2B',
+      contrastText: '#FDF8F4',
     },
-    divider: "#443C35", // Bordes
+    divider: '#443C35',     // Bordes
     action: {
-      hover: "rgba(224, 85, 69, 0.12)",
-      selected: "rgba(224, 85, 69, 0.16)",
+      hover: 'rgba(224, 85, 69, 0.12)',
+      selected: 'rgba(224, 85, 69, 0.16)',
     },
   },
 };
