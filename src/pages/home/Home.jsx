@@ -10,6 +10,7 @@ import ContainerChino from "../../components/ui/ContainerChino";
 import FooterChino from "../../components/ui/FooterChino";
 import ConsejosChino from "./ConsejosChino";
 import SelectorFonemas from "./SelectorFonemas";
+import ReproductorFonema from "./ReproductorFonema";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
           Haz clic en cualquier fonema para escuchar su pronunciación
         </Typography>
         <SelectorFonemas />
+        <ReproductorFonema />
         <ConsejosChino />
       </ContainerChino>
       <FooterChino />
