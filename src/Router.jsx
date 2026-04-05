@@ -14,7 +14,7 @@ import ErrorFallback from "./components/routers/ErrorFallback";
  * Chino base
  */
 const DefaultLayout = lazy(() => import("./components/routers/DefaultLayout"));
-const Home = lazy(() => import("./pages/Home"));
+const Home = lazy(() => import("./pages/home/Home"));
 
 const router = createBrowserRouter([
   /* Branch Público */
