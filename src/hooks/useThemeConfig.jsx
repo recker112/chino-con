@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { createTheme } from "@mui/material/styles";
+import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 import { readLocal } from "../components/utils/localRead";
 import { themes } from "../theme/themes";
 
@@ -38,9 +38,9 @@ export const useThemeConfig = () => {
     };
   }, []);
 
-  const themeConfig = useMemo(
-    () =>
-      createTheme({
+  let themeConfig = useMemo(
+    () => {
+      const theme = createTheme({
         typography: {
           fontFamily: ["Inter", "sans-serif", "Noto Color Emoji"].join(","),
         },
@@ -107,7 +107,10 @@ export const useThemeConfig = () => {
             },
           },
         },
-      }),
+      });
+      
+      return responsiveFontSizes(theme);
+    },
     [themeMode],
   );
 
