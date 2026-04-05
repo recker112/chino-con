@@ -1,6 +1,7 @@
 /**
  * Components
  */
+import TabContentSelector from "./Components/TabContentSelector";
 import TabSelector from "./Components/TabSelector";
 
 export default function SelectorFonemas() {
@@ -14,6 +15,7 @@ export default function SelectorFonemas() {
           { label: "Lista 4" },
         ]}
       />
+      <TabContentSelector />
     </>
   )
 }
