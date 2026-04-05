@@ -4,6 +4,7 @@ import { readStorage } from "../../../components/utils/localRead";
 const initialState = {
   theme: readStorage("userConfig.theme", 'light'),
   tabFonema: 0,
+  fonemaSelected: null,
 };
 
 export const userConfigSlice = createSlice({
