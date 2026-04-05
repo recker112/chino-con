@@ -11,7 +11,7 @@ import Fallback from "./components/routers/Fallback";
 import ErrorFallback from "./components/routers/ErrorFallback";
 
 /**
- * Osys base
+ * Chino base
  */
 const DefaultLayout = lazy(() => import("./components/routers/DefaultLayout"));
 const Home = lazy(() => import("./pages/Home"));
